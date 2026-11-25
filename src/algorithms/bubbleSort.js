@@ -8,7 +8,8 @@ export function getBubbleSortSteps(inputArray) {
         for (let j = 0; j < n - i - 1; j++){
             steps.push({array: [...arr], comparing: [j, j + 1], swapping: [], sorted: [...sorted] });
 
-            if (arr[j] > arr[j + 1], arr[j]){
+            // swap the adjacent values only when they are out of ascending order
+            if (arr[j] > arr[j + 1]){
                 [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
                 steps.push({ array: [...arr], comparing: [], swapping: [j, j + 1], sorted: [...sorted] });
             }

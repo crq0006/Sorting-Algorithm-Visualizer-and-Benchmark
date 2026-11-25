@@ -11,7 +11,8 @@ export function getQuickSortSteps(inputArray) {
         for (let j = low; j < high; j++){
             steps.push({ array: [...arr], comparing: [j, high], swapping: [], pivot: high, sorted: [...sorted] });
 
-            if (arr[j] < pivotVal){
+            // move values smaller than the pivot to the left partition
+            if (arr[j] < pivotalVal){
                 i++;
                 [arr[i], arr[j]] = [arr[j], arr[i]];
                 steps.push({ array: [...arr], comparing: [], swapping: [i, j], pivot: high, sorted: [...sorted]});
