@@ -158,6 +158,8 @@ npm run preview
 - Keep sorting algorithm implementations separate from visualization logic.
 - Benchmarking should measure algorithm execution independently of animation delays.
 - Use identical copies of datasets when comparing algorithms.
+- Validate algorithm outputs to ensure sorting correctness.
+- Keep components modular and reusable.
 
 ## Array Generator
 
@@ -174,9 +176,39 @@ const reverseValues = generateArray(100, { type: 'reversed' })
 The `type` option supports `random` (the default), `sorted`, `reversed`, and
 `duplicate-heavy`. Integer `min` and `max` bounds are inclusive and default to 1 and 100.
 The size must be a non-negative safe integer, and invalid bounds or types throw
-a `RangeError`. Run `npm test` to check the array generator and sorting algorithms.
-- Validate algorithm outputs to ensure sorting correctness.
-- Keep components modular and reusable.
+a `RangeError`.
+
+## Testing
+
+Run these commands from the project root after installing dependencies with
+`npm install`.
+
+Run the complete automated test suite:
+
+```bash
+npm test
+```
+
+The test suite checks all five sorting algorithms and the array generator. It
+covers sorting edge cases (including empty, single-element, reversed, and
+duplicate-containing arrays), generated array types and bounds, and invalid
+generator input.
+
+To run tests for one area only:
+
+```bash
+node --test test/algorithms.test.js
+node --test test/arrayGenerator.test.js
+```
+
+The suite currently tests the algorithm and data modules; it does not test the
+React interface, visualization playback, or benchmarking UI. Run lint and build
+checks separately:
+
+```bash
+npm run lint
+npm run build
+```
 
 ## Team Members
 
