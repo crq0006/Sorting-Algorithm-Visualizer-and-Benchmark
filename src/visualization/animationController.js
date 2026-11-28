@@ -28,9 +28,9 @@ export function usePlayback(lastTick, stepsPerSecond) {
             frameId = requestAnimationFrame(onFrame)
         }
 
-        frameid = requestAnimationFrame(onFrame)
+        frameId = requestAnimationFrame(onFrame)
         return () => cancelAnimationFrame(frameId)
     }, [paused, done, stepsPerSecond, lastTick])
     
-    return {tick, puased, done, togglePuase: () => setPaused((p) => !p), restart: () => { setTick(0), setPaused(false)}, }
+    return {tick, paused, done, togglePause: () => setPaused((p) => !p), restart: () => { setTick(0), setPaused(false)}, }
 }

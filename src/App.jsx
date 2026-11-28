@@ -99,7 +99,7 @@ function App() {
       return (
         <main>
           <ScreenCard title = "What is your second algorithm you would like to see?" onBack = {goBack}>
-            <AlgorithmSelector onSelect = {choseSecond} disabledKey = {first} />            
+            <AlgorithmSelector onSelect = {chooseSecond} disabledKey = {first} />            
           </ScreenCard>
         </main>
       )
